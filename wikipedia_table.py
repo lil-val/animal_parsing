@@ -52,7 +52,7 @@ class WikipediaTable:
                     tag.replace_with(',')
                 attribute_to_aggregate_by = cells[index_of_primary_attribute].get_text().replace("(list)", "").replace("  ", " ").strip()
                 attribute_data = cells[index_of_attribute_to_sort].get_text().replace("(list)", "").replace("  ", " ").strip()
-                attribute_data = re.sub(r'\[[^()]*\]', '', attribute_data)
+                attribute_data = re.sub(r'\[.*\]', '', attribute_data)
                 clean_table.append([attribute_data, attribute_to_aggregate_by])
         if len(clean_table) == 0:
             print("No relevant lines were found in the requested table")
